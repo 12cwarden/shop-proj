@@ -1,23 +1,22 @@
 import { Link } from 'react-router-dom';
-import './directory-item.styles.scss';
+import {
+  BgImage,
+  DirectoryBody,
+  DirectoryItemBlock,
+} from './directory-item.styles';
 
 const DirectoryItem = ({ category }) => {
   const { imageURL, title } = category;
   return (
-    <div className="directory-item-container">
-      <div
-        className="bg-image"
-        style={{
-          backgroundImage: `url(${imageURL})`,
-        }}
-      />
-      <div className="directoryBody-container">
+    <DirectoryItemBlock>
+      <BgImage imageUrl={imageURL} />
+      <DirectoryBody>
         <Link to={`shop/${title.toLowerCase()}`}>
           <h2>{title}</h2>
           <p>Shop Now</p>
         </Link>
-      </div>
-    </div>
+      </DirectoryBody>
+    </DirectoryItemBlock>
   );
 };
 

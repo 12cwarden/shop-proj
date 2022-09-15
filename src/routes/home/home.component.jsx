@@ -1,8 +1,6 @@
-
-import { default as Directory, default as directory } from '../../components/directory/directory.component';
+import { default as Directory } from '../../components/directory/directory.component';
 
 const Home = () => {
-
   const categories = [
     {
       id: 1,
@@ -29,10 +27,8 @@ const Home = () => {
       title: 'Mens',
       imageURL: 'https://i.ibb.co/R70vBrQ/men.png',
     },
-  ]
-  return (
-    <Directory categories={categories} />
-  );
-}
+  ];
+  return <Directory categories={categories} />;
+};
 
 export default Home;

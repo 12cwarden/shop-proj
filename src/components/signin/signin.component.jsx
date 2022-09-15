@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import {
-  createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
 } from '../../utils/firebase/firebase.utils';
-import Button from '../button/button.components';
+import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
-import './signin.styles.scss';
+import { ButtonsBlock, SignInBlock } from './signin.styles';
 
 const defaultFormFields = {
   email: '',
@@ -29,10 +28,7 @@ const SignInForm = () => {
     event.preventDefault();
 
     try {
-      const { user } = await signInAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
+      await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
     } catch (error) {
       if (error.code === 'auth/wrong-password' || 'auth/user-not-found') {
@@ -51,7 +47,7 @@ const SignInForm = () => {
   };
 
   return (
-    <div className="signin-container">
+    <SignInBlock>
       <h2>Already have an account?</h2>
       <span>Sign in with your email and password.</span>
       <form onSubmit={handleSubmit}>
@@ -71,14 +67,18 @@ const SignInForm = () => {
           value={password}
           onChange={handleChange}
         />
-        <div className="buttons-container">
+        <ButtonsBlock>
           <Button type="submit">Sign In</Button>
-          <Button type="button" buttonType="google" onClick={signInWithGoogle}>
+          <Button
+            type="button"
+            buttonType={BUTTON_TYPE_CLASSES.google}
+            onClick={signInWithGoogle}
+          >
             Google Sign In
           </Button>
-        </div>
+        </ButtonsBlock>
       </form>
-    </div>
+    </SignInBlock>
   );
 };
 
