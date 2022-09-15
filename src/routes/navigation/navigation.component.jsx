@@ -12,6 +12,7 @@ import {
   NavigationContainer,
   NavLink,
   NavLinks,
+  NavTitle,
 } from './navigation.styles';
 
 const Navigation = () => {
@@ -25,6 +26,7 @@ const Navigation = () => {
         <LogoContainer to="/">
           <SiteLogo className="logo" />
         </LogoContainer>
+        <NavTitle>CW Apparel</NavTitle>
         <NavLinks>
           <NavLink to="/shop">SHOP</NavLink>
           {currentUser ? (
