@@ -1,14 +1,14 @@
 import SignInForm from '../../components/signin/signin.component';
 import SignUpForm from '../../components/signup/signup.component';
-import './authentication.styles.scss';
+import { AuthBlock } from './authentication.styles';
 
 const SignIn = () => {
   return (
-    <div className="authentication-container">
+    <AuthBlock>
       <SignInForm />
       {/* <button onClick={logGoogleUser}>Sign in with Google Popup.</button> */}
       <SignUpForm />
-    </div>
+    </AuthBlock>
   );
 };
 
